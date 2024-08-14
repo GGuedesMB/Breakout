@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("O Malanga é gay");
+
     }
 }
