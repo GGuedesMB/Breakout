@@ -21,6 +21,14 @@ public class Player : MonoBehaviour
         (este que é positivo ao se multiplicar pelo Horizontal q é positivo para a direita)
         * vel (constante) * Horizontal * Time.tananana (para que se mova por segundo e nn por frame)*/
         transform.position += Vector3.right * x * vel * Time.deltaTime; 
-        
+        if (transform.position.x <= -8.4 )
+        {
+            transform.position = new Vector3(-8.4f , -3.5f , 1);
+        }
+        if (transform.position.x >= 8.4)
+        {
+            transform.position = new Vector3(8.4f, -3.5f, 1);
+        }
+        //Lembrar de fazer ela ir de um lado para o outro
     }
 }
