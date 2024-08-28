@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float vel;
+    [SerializeField] float velY;
     bool hasLaunched;
 
     // Start is called before the first frame update
@@ -24,5 +25,11 @@ public class Ball : MonoBehaviour
             hasLaunched = true;
         }
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player>())
+        {
+            rb.velocity += Vector2.right * velY * (transform.position.x - collision.transform.position.x);
+        }
+    }
 }
