@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        balls = 1; // provisório
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         }
         if (balls == 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
 
         //Lembrar de fazer ela ir de um lado para o outro
