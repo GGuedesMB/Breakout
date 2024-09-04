@@ -9,11 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] float vel = 5;
     [SerializeField] float maxX = 8.9f;
     public int balls;
+    public int blocks;
 
     // Start is called before the first frame update
     void Start()
     {
-        balls = 1; // provisório
+        
     }
 
     // Update is called once per frame
@@ -36,7 +37,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-
+        if (blocks == 0)
+        {
+            SceneManager.LoadScene(1);
+        }
         //Lembrar de fazer ela ir de um lado para o outro
     }
 }
