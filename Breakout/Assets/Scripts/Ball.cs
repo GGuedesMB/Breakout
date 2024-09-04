@@ -7,7 +7,6 @@ public class Ball : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float vel;
     [SerializeField] float velX;
-    [SerializeField] float velY;
     [SerializeField] float minY = -5.5f;
     bool hasLaunched;
     Player player;
