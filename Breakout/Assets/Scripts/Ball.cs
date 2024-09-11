@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float vel;
+    [SerializeField] float speedGainPerBlockHit = 1;
     [SerializeField] float velX;
     [SerializeField] float minY = -5.5f;
     bool hasLaunched;
@@ -34,13 +35,23 @@ public class Ball : MonoBehaviour
             player.balls--;
             Destroy(gameObject);
         }
+
+        rb.velocity = rb.velocity.normalized * vel;
+        //Debug.Log("Velocidade normalizada: " + rb.velocity);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Player>())
         {
             rb.velocity += Vector2.right * velX * (transform.position.x - collision.transform.position.x);
         }
+    }
+
+    public void SpeedAddiction()
+    {
+        vel += speedGainPerBlockHit;
+        Debug.Log("Vel: " + vel);
     }
 
     

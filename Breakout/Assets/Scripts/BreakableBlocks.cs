@@ -23,12 +23,12 @@ public class BreakableBlocks : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Ball>())
         {
+            collision.gameObject.GetComponent<Ball>().SpeedAddiction();
             life--;
             if(life <= 0)
             {
+                player.blocks--;
                 Destroy(gameObject);
-                player.blocks --;
-
             }
         }
     }
