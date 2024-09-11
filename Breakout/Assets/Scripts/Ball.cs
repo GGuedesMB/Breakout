@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     [SerializeField] float speedGainPerBlockHit = 1;
     [SerializeField] float velX;
     [SerializeField] float minY = -5.5f;
+    [SerializeField] float howMuchBiggerCanBeX;
     bool hasLaunched;
     Player player;
 
@@ -40,11 +41,9 @@ public class Ball : MonoBehaviour
         //Debug.Log("Velocidade normalizada: " + rb.velocity);
 
         // Ajustar angulo
-        if (Mathf.Abs(rb.velocity.x) >= 2 * Mathf.Abs(rb.velocity.y) && rb.velocity.magnitude != 0)
+        if (Mathf.Abs(rb.velocity.x) >= howMuchBiggerCanBeX * Mathf.Abs(rb.velocity.y) && rb.velocity.magnitude != 0)
         {
-            Debug.Log("X: " + rb.velocity.x);
-            Debug.Log("Y: " + rb.velocity.y);
-            rb.velocity = new Vector2(rb.velocity.x/2, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.y * howMuchBiggerCanBeX, rb.velocity.y);
         }
     }
 
