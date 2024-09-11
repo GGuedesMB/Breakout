@@ -38,6 +38,14 @@ public class Ball : MonoBehaviour
 
         rb.velocity = rb.velocity.normalized * vel;
         //Debug.Log("Velocidade normalizada: " + rb.velocity);
+
+        // Ajustar angulo
+        if (Mathf.Abs(rb.velocity.x) >= 2 * Mathf.Abs(rb.velocity.y) && rb.velocity.magnitude != 0)
+        {
+            Debug.Log("X: " + rb.velocity.x);
+            Debug.Log("Y: " + rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x/2, rb.velocity.y);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,7 +59,7 @@ public class Ball : MonoBehaviour
     public void SpeedAddiction()
     {
         vel += speedGainPerBlockHit;
-        Debug.Log("Vel: " + vel);
+        //Debug.Log("Vel: " + vel);
     }
 
     
