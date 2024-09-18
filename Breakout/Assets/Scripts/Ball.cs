@@ -37,14 +37,16 @@ public class Ball : MonoBehaviour
             Destroy(gameObject);
         }
 
-        rb.velocity = rb.velocity.normalized * vel;
-        //Debug.Log("Velocidade normalizada: " + rb.velocity);
+         // colocar depois do ajuste de ângulo
 
-        // Ajustar angulo
+        // Ajuste do ângulo
         if (Mathf.Abs(rb.velocity.x) >= howMuchBiggerCanBeX * Mathf.Abs(rb.velocity.y) && rb.velocity.magnitude != 0)
         {
-            rb.velocity = new Vector2(rb.velocity.y * howMuchBiggerCanBeX, rb.velocity.y);
+            rb.velocity = new Vector2(Mathf.Abs(rb.velocity.y) * Mathf.Sign(rb.velocity.x) * howMuchBiggerCanBeX, rb.velocity.y);
         }
+
+        // Ajuste da rapidez
+        rb.velocity = rb.velocity.normalized * vel;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
