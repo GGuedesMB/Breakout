@@ -6,6 +6,8 @@ public class BreakableBlocks : MonoBehaviour
 {
     [SerializeField] int life;
     Player player;
+    [SerializeField] GameObject powerSphere;
+    //[SerializeField] Max
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,20 @@ public class BreakableBlocks : MonoBehaviour
             life--;
             if(life <= 0)
             {
+                int randy = UnityEngine.Random.Range(0, 12);
+                if (randy > 5 && randy <= 8 ) 
+                {
+                    Instantiate(powerSphere, gameObject.transform.position, gameObject.transform.rotation);
+                    Debug.Log("buff:" + randy);
+                }
+                else if (randy > 8)
+                {
+                    Debug.Log("debuff:" + randy);
+                }
+                else
+                {
+                    Debug.Log("nothing:" + randy);
+                }
                 player.blocks--;
                 Destroy(gameObject);
             }
