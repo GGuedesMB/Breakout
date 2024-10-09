@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
+  powerSphere: {fileID: 7221003161605942857, guid: 33505d0aff13a2045b4e2f4e638d852a, type: 3}
 --- !u!61 &8747460515233103157
 BoxCollider2D:
   m_ObjectHideFlags: 0
