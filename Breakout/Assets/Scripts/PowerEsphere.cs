@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerEsphere : MonoBehaviour
 {
-    Player player;
+    GameObject ball;
     [SerializeField] GameObject instantiableBall;
     public GameObject shield;
     // Start is called before the first frame update
@@ -12,7 +12,6 @@ public class PowerEsphere : MonoBehaviour
     {
         shield = GameObject.Find("Shield");
         shield.SetActive(false);
-        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -26,7 +25,8 @@ public class PowerEsphere : MonoBehaviour
         {
             int randomPower = Random.Range(0, 10);
             Debug.Log("number: " + randomPower);
-            BiggerPaddle();
+            DoubleDuo();
+            //Destroy(gameObject);
         }
     }
     private void Shield()
@@ -39,7 +39,8 @@ public class PowerEsphere : MonoBehaviour
     }
     private void DoubleDuo()
     {
-        player.balls++;
-        Instantiate(instantiableBall, gameObject.transform.position, gameObject.transform.rotation);
+        ball = Instantiate(instantiableBall, gameObject.transform.position, gameObject.transform.rotation);
+        Debug.Log(ball);
+        ball.GetComponent<Ball>().LaunchAddiction();
     }
 }

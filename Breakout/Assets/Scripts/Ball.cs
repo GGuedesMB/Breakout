@@ -10,15 +10,19 @@ public class Ball : MonoBehaviour
     [SerializeField] float velX;
     [SerializeField] float minY = -5.5f;
     [SerializeField] float howMuchBiggerCanBeX;
-    bool hasLaunched;
+    public bool hasLaunched;
     Player player;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<Player>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         hasLaunched = false;
-        player = FindObjectOfType<Player>();
         player.balls ++;
     }
 
@@ -27,8 +31,7 @@ public class Ball : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && !hasLaunched)
         {
-            rb.velocity = new Vector2(0,vel);
-            hasLaunched = true;
+            LaunchAddiction();
         }
 
         if (transform.position.y <= minY)
@@ -47,6 +50,12 @@ public class Ball : MonoBehaviour
 
         // Ajuste da rapidez
         rb.velocity = rb.velocity.normalized * vel;
+    }
+
+    public void LaunchAddiction()
+    {
+        rb.velocity = new Vector2(0, vel);
+        hasLaunched = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
