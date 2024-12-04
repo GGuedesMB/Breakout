@@ -11,7 +11,6 @@ public class PowerEsphere : MonoBehaviour
     void Start()
     {
         shield = GameObject.Find("Shield");
-        shield.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,20 +24,20 @@ public class PowerEsphere : MonoBehaviour
         {
             int randomPower = Random.Range(0, 10);
             Debug.Log("number: " + randomPower);
-            DoubleDuo();
+            Shield();
             //Destroy(gameObject);
         }
     }
     private void Shield()
     {
-        shield.SetActive(true);
+        shield.transform.position = new Vector3(0,shield.transform.position.y, 0);
     }
     private void BiggerPaddle()
     {
         FindAnyObjectByType<Player>().gameObject.transform.localScale += new Vector3(3, 0, 0);
     }
     private void DoubleDuo()
-    {
+    {   
         ball = Instantiate(instantiableBall, gameObject.transform.position, gameObject.transform.rotation);
         Debug.Log(ball);
         ball.GetComponent<Ball>().LaunchAddiction();

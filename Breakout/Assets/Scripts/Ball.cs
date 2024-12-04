@@ -63,6 +63,10 @@ public class Ball : MonoBehaviour
         {
             rb.velocity += Vector2.right * velX * (transform.position.x - collision.transform.position.x);
         }
+        else if (collision.gameObject.tag == "Shield")
+        {
+            collision.transform.position += Vector3.right * 9999999999999999999;
+        }
     }
 
     public void SpeedAddiction()
@@ -70,6 +74,4 @@ public class Ball : MonoBehaviour
         vel += speedGainPerBlockHit;
         //Debug.Log("Vel: " + vel);
     }
-
-    
 }
