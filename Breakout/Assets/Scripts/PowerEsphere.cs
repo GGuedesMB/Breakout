@@ -22,10 +22,21 @@ public class PowerEsphere : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
-            int randomPower = Random.Range(0, 10);
+            int randomPower = Random.Range(0, 3);
             Debug.Log("number: " + randomPower);
-            Shield();
             //Destroy(gameObject);
+            if(randomPower == 0)
+            {
+                Shield();
+            }
+            else if(randomPower == 1)
+            {
+                BiggerPaddle();
+            }
+            else if(randomPower == 2)
+            {
+                DoubleDuo();
+            }
         }
     }
     private void Shield()
