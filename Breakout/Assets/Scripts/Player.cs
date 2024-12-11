@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] float maxX = 8.9f;
     public int balls;
     public int blocks;
+    [SerializeField] float gameOverDelay;
+    [SerializeField] GameObject canvasGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +37,22 @@ public class Player : MonoBehaviour
         }
         if (balls == 0)
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(Die());
         }
         if (blocks == 0)
-        {
-            SceneManager.LoadScene(1);
+        { 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         //Lembrar de fazer ela ir de um lado para o outro
+        
+    }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(gameOverDelay);
+        canvasGameOver.SetActive(true);
     }
 }
