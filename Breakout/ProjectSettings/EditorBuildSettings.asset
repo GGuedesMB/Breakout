@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MenuDoChef.unity
+    guid: 14ce718a8478e8f44a07fd1adde09e87
+  - enabled: 1
+    path: Assets/Scenes/Playground.unity
+    guid: 497c67c92a99d0e4cbdc691d6f5dfa08
+  - enabled: 1
+    path: Assets/Scenes/Playground 1.unity
+    guid: d69613115ca05ed42b698dcddec2dd1c
+  - enabled: 1
+    path: Assets/Scenes/Playground 2.unity
+    guid: aa813dde9e7c0bd4d9116f3da9db99cc
+  - enabled: 1
+    path: Assets/Scenes/Congratulations.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

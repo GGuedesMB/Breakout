@@ -21,6 +21,10 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void RageQuit()
     {
         Application.Quit();
