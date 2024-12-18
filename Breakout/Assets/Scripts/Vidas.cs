@@ -11,7 +11,7 @@ public class Vidas : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI livesText;
 
-    int startLives = 5;
+    int startLives = 2;
     int currentLives;
 
     void Awake()
